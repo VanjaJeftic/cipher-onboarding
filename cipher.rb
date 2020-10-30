@@ -2,10 +2,11 @@ require_relative "lib/cipher"
 
 print "*** CAESAR CIPHER ***\n"
 
-user_input = ARGV.join(" ")
+print "\nEnter the text you would you like to rotate: \n"
+user_input = gets.chomp
 
 print "\nEnter the number of times you want to rotate entered text: \n"
-number = STDIN.gets.chomp.to_i
+number = gets.chomp.to_i
 
 cipher_instance = Cipher.new()
 
