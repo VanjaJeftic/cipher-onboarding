@@ -11,7 +11,6 @@ class Cipher
       result = ""
       alphabet  = Array('a'..'z')
 
-
       if @number > 26
         begin
           raise ArgumentError.new("You have entered a number greater than 26! Please enter a number that is <= 26!")
@@ -28,6 +27,7 @@ class Cipher
         end
 
         return result
+
       end
     end
 
