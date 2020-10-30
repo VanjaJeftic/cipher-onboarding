@@ -13,7 +13,6 @@ def console_method()
 
   $result = cipher_instance.method_cipher()
 
-
 end
 
 console_method()
