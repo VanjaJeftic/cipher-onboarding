@@ -4,15 +4,15 @@ require_relative 'lib/cipher'
 
 print "*** CAESAR CIPHER ***\n"
 print "\nEnter the ROT text: \n"
-user_input = gets.chomp
+input_text = gets.chomp
 
 print "\nEnter the number of rotation: \n"
 number = gets.chomp.to_i
 
-cipher_instance = Cipher.new(number)
+cipher = Cipher.new(number)
 
 print "\nBefore rotation: "
-puts user_input
+puts input_text
 
 print "\nAfter rotation: "
-puts cipher_instance.method_cipher(user_input)
+puts cipher.rotation(input_text)
