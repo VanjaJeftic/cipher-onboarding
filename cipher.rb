@@ -11,14 +11,16 @@ end
 
 print 'Which ROT you want to use?'
 number_and_text = multiline_text
-number = number_and_text[0, 1].to_i
-number_and_text[0] = ''
-text = number_and_text
+number_from_input = number_and_text.split(' ').first
+text = number_and_text.slice((number_and_text.index(' ')+1..-1))
+
+number = number_from_input.to_i
+puts text
 
 cipher = Cipher.new(number)
 
-print "\nBefore rotation:"
+print "\nBefore rotation:\n"
 puts text
 
-print "\nAfter rotation:"
+print "\nAfter rotation:\n"
 puts cipher.rotation(text)
