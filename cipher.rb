@@ -1,18 +1,24 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 require_relative 'lib/cipher'
 
-print "*** CAESAR CIPHER ***\n"
-print "\nEnter the ROT text: \n"
-input_text = gets.chomp
+def multi_line_text(all_text = '')
+  until (text = gets) == "\n"
+    all_text << text
+  end
+  all_text.chomp
+end
 
-print "\nEnter the number of rotation: \n"
-number = gets.chomp.to_i
+print 'Which ROT you want to use?'
+number_and_text = multi_line_text
+number = number_and_text[0, 1].to_i
+number_and_text[0] = ''
+text = number_and_text
 
 cipher = Cipher.new(number)
 
-print "\nBefore rotation: "
-puts input_text
+print "\nBefore rotation:"
+puts text
 
-print "\nAfter rotation: "
-puts cipher.rotation(input_text)
+print "\nAfter rotation:"
+puts cipher.rotation(text)

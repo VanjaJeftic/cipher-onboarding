@@ -20,6 +20,8 @@ class Cipher
     result
   end
 
+  private
+
   def validate_number(number)
     return unless number > MAX_NUMBER
 
