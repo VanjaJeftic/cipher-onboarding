@@ -1,35 +1,28 @@
-require_relative "cipher"
+# frozen_string_literal: false
 
+# Description/Explanation of Cipher class
 class Cipher
+  ALPHABET = ('a'..'z').to_a
+  MAX_NUMBER = 26
 
-    def initialize(user_input, number)
-      @number = number
-      @user_input = user_input
+  def initialize(number)
+    validate_number(number)
+    @number = number
+  end
+
+  def method_cipher(user_input)
+    result = ''
+
+    user_input.each_char do |char|
+      @number.times { char = char.next } if ALPHABET.include?(char.downcase)
+      result << char[-1]
     end
+    result
+  end
 
-    def method_cipher ()
-      result = ""
-      alphabet  = Array('a'..'z')
+  def validate_number(number)
+    return unless number > MAX_NUMBER
 
-      if @number > 26
-        begin
-          raise ArgumentError.new("You have entered a number greater than 26! Please enter a number that is <= 26!")
-        rescue ArgumentError => e
-          puts e.message
-          console_method()
-        end
-      else
-        @user_input.each_char do |char|
-          if alphabet.include? (char.downcase)
-            @number.times {char = char.next}
-          end
-          result << char[-1]
-        end
-
-        return result
-
-      end
-    end
-
+    raise ArgumentError, 'You have entered a number greater than 26!'
+  end
 end
-
