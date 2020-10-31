@@ -2,7 +2,7 @@
 
 require_relative 'lib/cipher'
 
-def multi_line_text(all_text = '')
+def multiline_text(all_text = '')
   until (text = gets) == "\n"
     all_text << text
   end
@@ -10,7 +10,7 @@ def multi_line_text(all_text = '')
 end
 
 print 'Which ROT you want to use?'
-number_and_text = multi_line_text
+number_and_text = multiline_text
 number = number_and_text[0, 1].to_i
 number_and_text[0] = ''
 text = number_and_text
