@@ -62,4 +62,11 @@ describe Cipher do
       expect(cipher_instance.method_cipher('1234567890')).to eql('1234567890')
     end
   end
+
+  context "ROT1 - given 'ABC'" do
+    it 'BCD' do
+      cipher_instance = Cipher.new(1)
+      expect(cipher_instance.method_cipher('ABC')).to eql('BCD')
+    end
+  end
 end
