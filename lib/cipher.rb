@@ -10,15 +10,17 @@ class Cipher
     @number = number
   end
 
-  def method_cipher(user_input)
+  def rotation(input_text)
     result = ''
 
-    user_input.each_char do |char|
+    input_text.each_char do |char|
       @number.times { char = char.next } if ALPHABET.include?(char.downcase)
       result << char[-1]
     end
     result
   end
+
+  private
 
   def validate_number(number)
     return unless number > MAX_NUMBER
