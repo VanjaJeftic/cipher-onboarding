@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'cipher'
 
 describe Cipher do
@@ -26,8 +24,8 @@ describe Cipher do
 
   context "ROT13 - given 'The quick brown fox jumps over the lazy dog.'" do
     it 'returns Gur dhvpx oebja sbk whzcf bire gur ynml qbt.' do
-      cipher = Cipher.new(13)
       string_before = 'The quick brown fox jumps over the lazy dog.'
+      cipher = Cipher.new(13)
       string_after = 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'
       expect(cipher.rotation(string_before)).to eql(string_after)
     end
@@ -35,8 +33,8 @@ describe Cipher do
 
   context "ROT13 - given 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'" do
     it 'returns The quick brown fox jumps over the lazy dog.' do
-      cipher = Cipher.new(13)
       string_before = 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'
+      cipher = Cipher.new(13)
       string_after = 'The quick brown fox jumps over the lazy dog.'
       expect(cipher.rotation(string_before)).to eql(string_after)
     end
