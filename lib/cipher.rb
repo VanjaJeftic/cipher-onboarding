@@ -20,13 +20,6 @@ class Cipher
   private
 
   def validate_number(number)
-    return unless number > MAX_NUMBER
-
-    begin
-      raise ArgumentError, 'You have entered a number greater than 26!'
-    rescue StandardError => e
-      puts "An error of type #{e.class} happened, message is: #{e.message}"
-      exit
-    end
+    raise ArgumentError, 'You have entered a number greater than 26!' if number > MAX_NUMBER
   end
 end
