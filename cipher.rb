@@ -10,7 +10,12 @@ end
 print 'Which ROT you want to use? '
 number = gets.chomp.to_i
 
-cipher = Cipher.new(number)
+begin
+  cipher = Cipher.new(number)
+rescue ArgumentError => e
+  puts "An error of type #{e.class} happened, message is: #{e.message}"
+  exit
+end
 
 puts 'Enter text: '
 number_and_text = multiline_text
